@@ -1,7 +1,6 @@
-#Group Dynamic XP
+# Group Dynamic XP
 ## Introduction
-This module is designed for persistent servers that have small groups. The modifications made to the original mod give increased XP rewards when playing in a group, so players who login solo don't leave their friends behind.
-Additionally, the group's dynamic XP rate can be based on the level of the lowest or highest member. Allowing those who stayed up a few extra hours to grind to wait for their friends to catch up, or to accelerate the process.
+The Group Dynamic XP module is tailored for persistent servers with small group dynamics. It enhances the original functionality by providing increased XP rewards when playing in a group, ensuring that players who venture solo don't leave their companions behind. Additionally, the module introduces dynamic XP scaling within groups, allowing adjustments based on the level of the lowest or highest member. This feature enables players to accommodate varying playstyles, whether they prefer to wait for friends to catch up or accelerate their progress.
 
 ## Original Module Credits
 

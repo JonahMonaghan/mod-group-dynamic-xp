@@ -13,6 +13,12 @@
 #        Dynamic.XP.Rate.X-X: 1+ (Set a custom XP rate on that level range)
 #                             0  (Reset custom XP rate to default on that level range)
 #
+#        Dynamic.XP.Group: 1 (Enable, gives additional double XP to players in group) Default
+#                          0 (Disable)
+#
+#        Dynamic.XP.Group.Scale: 1 (Enable, gives group lowest player's dynamic XP rate) Default
+#                                2 (Enable, gives group highest player's dynamic XP rate)
+#                                0 (Disable)
 
 Dynamic.XP.Rate.Announce = 1
 
@@ -26,5 +32,9 @@ Dynamic.XP.Rate.40-49 = 5
 Dynamic.XP.Rate.50-59 = 6
 Dynamic.XP.Rate.60-69 = 7
 Dynamic.XP.Rate.70-79 = 8
+
+Dynamic.XP.Group = 1
+
+Dynamic.XP.Group.Scale = 1
 
 ##################################################################################################################

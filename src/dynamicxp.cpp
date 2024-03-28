@@ -28,6 +28,11 @@ public:
         if (sConfigMgr->GetOption<bool>("Dynamic.XP.Rate.Announce", true))
         {
             ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00Level Dynamic XP |rmodule.");
+            if(sConfigMgr->GetOption<uint32>("Dynamic.XP.Group", true)){
+                ChatHandler(player->GetSession()).SendSysMessage("Group scaling is |ccf4CFF00Enabled|r.");
+            }else{
+                ChatHandler(player->GetSession()).SendSysMessage("Group scaling is |ccfFF0000Disabled|r.");
+            }
         }
     }
 

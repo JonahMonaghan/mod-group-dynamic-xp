@@ -1,27 +1,9 @@
-# ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
+#Group Dynamic XP
+## Introduction
+This module is designed for persistent servers that have small groups. The modifications made to the original mod give increased XP rewards when playing in a group, so players who login solo don't leave their friends behind.
+Additionally, the group's dynamic XP rate can be based on the level of the lowest or highest member. Allowing those who stayed up a few extra hours to grind to wait for their friends to catch up, or to accelerate the process.
 
-# Dynamic XP
-
-- Latest build status with azerothcore:
-
-[![Build Status](https://github.com/azerothcore/mod-dynamic-xp/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/azerothcore/mod-dynamic-xp)
-
-## Description
-
-Set xp per level range e.g in dynamicxp.conf.
-
-## Features
-
-- Dynamic.XP.Rate.1-9 = 1.0
-- Dynamic.XP.Rate.10-19 = 2.0
-- Dynamic.XP.Rate.20-29 = 3.0
-- Dynamic.XP.Rate.30-39 = 4.0
-- Dynamic.XP.Rate.40-49 = 5.0
-- Dynamic.XP.Rate.50-59 = 6.0
-- Dynamic.XP.Rate.60-69 = 7.0
-- Dynamic.XP.Rate.70-79 = 8.0
-
-## Credits
+## Original Module Credits
 
 - [Micrah/Milestorme: Script/Module Creator](https://github.com/milestorme).
 - [Poszer: Script Support](https://github.com/poszer) 

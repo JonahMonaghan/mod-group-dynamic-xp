@@ -91,7 +91,7 @@ public:
     }
 };
 
-void AddSC_dynamic_xp_rate()
+void AddSC_group_dynamic_xp_rate()
 {
     new spp_dynamic_xp_rate();
 }

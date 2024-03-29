@@ -42,10 +42,35 @@ public:
 
         //Less function calls
         uint32 level = player->GetLevel();
+        Group* group = player->GetGroup();
+        
+        if (sConfigMgr->GetOption<bool>("Dynamic.XP.Rate", true))
+        {
+            if (level <= 9)
+                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.1-9", 1);
+            else if (level <= 19)
+                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.10-19", 2);
+            else if (level <= 29)
+                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.20-29", 3);
+            else if (level <= 39)
+                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.30-39", 4);
+            else if (level <= 49)
+                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.40-49", 5);
+            else if (level <= 59)
+                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.50-59", 6);
+            else if (level <= 69)
+                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.60-69", 7);
+            else if (level <= 79)
+                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.70-79", 8);
+        }
 
+        if(group == nullptr){
+            return;
+        }
+        
+        
         //Incentivize group play over solo leveling
         if(sConfigMgr->GetOption<bool>("Dynamic.XP.Group", true)){
-            Group* group = player->GetGroup();
             uint32 partySize = group->GetMembersCount();
             amount *= partySize * 2;
         }
@@ -67,26 +92,6 @@ public:
                     level = member->GetLevel();
                 }
             }
-        }
-
-        if (sConfigMgr->GetOption<bool>("Dynamic.XP.Rate", true))
-        {
-            if (level <= 9)
-                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.1-9", 1);
-            else if (level <= 19)
-                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.10-19", 2);
-            else if (level <= 29)
-                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.20-29", 3);
-            else if (level <= 39)
-                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.30-39", 4);
-            else if (level <= 49)
-                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.40-49", 5);
-            else if (level <= 59)
-                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.50-59", 6);
-            else if (level <= 69)
-                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.60-69", 7);
-            else if (level <= 79)
-                amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.70-79", 8);
         }
     }
 };

@@ -16,6 +16,7 @@ Original Script from AshmaneCore https://github.com/conan513 Single Player Proje
 #include "Player.h"
 #include "Config.h"
 #include "Chat.h"
+#include "Group.h"
 
 
 class spp_dynamic_xp_rate : public PlayerScript

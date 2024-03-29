@@ -55,17 +55,17 @@ public:
             uint32 groupScale = sConfigMgr->GetOption<uint32>("Dynamic.XP.Group.Scale", 1);
 
             if(groupScale == 1){
-                group->DoForAllMembers([&](Player* member)){
+                group->DoForAllMembers([&](Player* member){
                     if(member->GetLevel() < level){
                         level = member->GetLevel();
                     }
-                }
+                });
             }else if(groupScale == 2){
-                group->DoForAllMembers([&](Player* member)){
+                group->DoForAllMembers([&](Player* member){
                     if(member->GetLevel() > level){
                         level = member->GetLevel();
                     }
-                }
+                });
             }
         }
 

@@ -12,9 +12,9 @@ Module Created by Micrah/Milestorme
 Original Script from AshmaneCore https://github.com/conan513 Single Player Project
 */
 
-#include "Configuration/Config.h"
 #include "ScriptMgr.h"
 #include "Player.h"
+#include "Config.h"
 #include "Chat.h"
 
 

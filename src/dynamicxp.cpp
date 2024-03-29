@@ -43,7 +43,32 @@ public:
         //Less function calls
         uint32 level = player->GetLevel();
         Group* group = player->GetGroup();
-        
+
+        if(group != nullptr){        
+            //Incentivize group play over solo leveling
+            if(sConfigMgr->GetOption<bool>("Dynamic.XP.Group", true)){
+                uint32 partySize = group->GetMembersCount();
+                amount *= partySize * 2;
+            }
+
+            //Keep level gaps of group standard
+            uint32 groupScale = sConfigMgr->GetOption<uint32>("Dynamic.XP.Group.Scale", 1);
+
+            if(groupScale == 1){
+                group->DoForAllMembers([&](Player* member)){
+                    if(member->GetLevel() < level){
+                        level = member->GetLevel();
+                    }
+                }
+            }else if(groupScale == 2){
+                group->DoForAllMembers([&](Player* member)){
+                    if(member->GetLevel() > level){
+                        level = member->GetLevel();
+                    }
+                }
+            }
+        }
+
         if (sConfigMgr->GetOption<bool>("Dynamic.XP.Rate", true))
         {
             if (level <= 9)
@@ -62,36 +87,6 @@ public:
                 amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.60-69", 7);
             else if (level <= 79)
                 amount *= sConfigMgr->GetOption<uint32>("Dynamic.XP.Rate.70-79", 8);
-        }
-
-        if(group == nullptr){
-            return;
-        }
-        
-        
-        //Incentivize group play over solo leveling
-        if(sConfigMgr->GetOption<bool>("Dynamic.XP.Group", true)){
-            uint32 partySize = group->GetMembersCount();
-            amount *= partySize * 2;
-        }
-
-        //Keep level gaps of group standard
-        uint32 groupScale = sConfigMgr->GetOption<uint32>("Dynamic.XP.Group.Scale", 1);
-
-        if(groupScale == 1){
-            //Set group level scaling to the LOWEST LEVELLED PLAYER
-            for (auto member : group->GetMembers()) {
-                if (member->IsPlayer() && member->GetLevel() < level) {
-                    level = member->GetLevel();
-                }
-            }
-        }else if(groupScale == 2){
-            //Set group level scaling to the HIGHEST LEVELLED PLAYER
-            for (auto member : group->GetMembers()) {
-                if (member->IsPlayer() && member->GetLevel() > level) {
-                    level = member->GetLevel();
-                }
-            }
         }
     }
 };

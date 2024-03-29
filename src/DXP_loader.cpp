@@ -1,6 +1,6 @@
-void AddSC_dynamic_xp_rate();
+void AddSC_group_dynamic_xp_rate();
 
 void Addmod_group_dynamic_xpScripts()
 {
-    AddSC_dynamic_xp_rate();
+    AddSC_group_dynamic_xp_rate();
 }
